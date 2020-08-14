@@ -1,14 +1,16 @@
 import React from 'react';
-import './App.css';
 import { Router } from '@reach/router'
-import About from './pages/About';
-import Home from './pages/Home';
-import Portfolio from './pages/Portfolio';
-import Contact from './pages/Contact';
-import Blog from './pages/Blog';
+import About from './pages/About.jsx'
+import Contact from './pages/Contact.jsx'
+import Portfolio from './pages/Portfolio.jsx'
+import Blog from './pages/Blog.jsx'
+import Home from './pages/Home.jsx'
+import ResponsiveNavigation from './components/ResponsiveNavigation'
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const navLinks = [
+	const navLinks = [
 		{
 			text: 'Home',
 			path: '/',
@@ -34,20 +36,25 @@ function App() {
 			path: '/portfolio',
 			icon: 'ion-ios-briefcase'
 		}
-  ]
-  
-  return (
-    <div className="App">
-      <Router>
-          <Home path="/home" />
-          <Portfolio path="/portfolio" />
-          <Contact path="/contact" />
-          <About path="/about" />
-          <Blog path="/blog" />
+	]
 
-      </Router>
-    </div>
-  );
+	return (
+		<div className="App">
+			<ResponsiveNavigation
+				navLinks={ navLinks }
+				logo={ logo }
+				background="#fff"
+				hoverBackground="#ddd"
+				linkColor="#777"
+			/>
+			<Router>
+				<Contact path="/contact" />
+				<Home path="/home" />
+				<Portfolio path="/portfolio" />
+				<Blog path="/blog" />
+				<About path="/about" />
+			</Router>
+		</div>
+	);
 }
-
 export default App;

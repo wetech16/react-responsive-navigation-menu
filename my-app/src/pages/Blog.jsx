@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default () => {
-    return (
-        <div>Blog</div>
-    )
+class Blog extends Component {
+    render () {
+        return (
+            <div>Blog</div>
+        )
+    }
 }
+
+export default Blog
